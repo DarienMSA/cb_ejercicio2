@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model List<CbtProcesodeanalisi>
+
+
+
+<div class="text-center row">
+    <h1>LISTA DE PROCESOS</h1>
+    @if (TempData["Created"] != null)
+    {
+        <h2> @TempData["Created"] </h2>
+    }
+    @foreach (var analisis in Model)
+    {
+        <a asp-action="FormarZip" asp-route-id="@analisis.ProcesoDeAnalisisId" asp-route-com="@analisis.Comentarios" class="btn btn-primary mt-3 col-12">@Html.DisplayFor(m=>analisis.Comentarios)</a>
+    }
+</div>
